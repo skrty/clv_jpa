@@ -19,10 +19,16 @@ public class Car {
 
     private Long kilometers;
 
+    private String name;
+
     @Enumerated(EnumType.STRING)
     private CarBrand brand;
 
     public Car () {
+    }
+
+    public Car(String name) {
+        this.name = name;
     }
 
     public Car (String spz, String color, String origin, Long kilometers, CarBrand brand) {
@@ -79,5 +85,13 @@ public class Car {
 
     public void setBrand(CarBrand brand) {
         this.brand = brand;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
