@@ -18,10 +18,10 @@ public class Customer {
     private String phone;
     private Integer discount;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "customer")
     private List<Car> cars;
 
-    public Customer(){};
+    public Customer(){}
 
     public Customer(String firstname, String lastname, String email, String phone, Integer discount) {
         this.firstname = firstname;
@@ -81,5 +81,18 @@ public class Customer {
 
     public void setCars(List<Car> cars) {
         this.cars = cars;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                '}';
     }
 }

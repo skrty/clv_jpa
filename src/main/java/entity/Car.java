@@ -24,19 +24,24 @@ public class Car {
     @Enumerated(EnumType.STRING)
     private CarBrand brand;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Customer customer;
+
     public Car () {
     }
 
-    public Car(String name) {
+    public Car(String name, Customer owner) {
+        this.customer = owner;
         this.name = name;
     }
 
-    public Car (String spz, String color, String origin, Long kilometers, CarBrand brand) {
+    public Car (String spz, String color, String origin, Long kilometers, CarBrand brand, Customer owner) {
         this.spz = spz;
         this.color = color;
         this.origin = origin;
         this.kilometers = kilometers;
         this.brand = brand;
+        this.customer = owner;
     }
 
     public long getId() {
@@ -93,5 +98,22 @@ public class Car {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", spz='" + spz + '\'' +
+                ", customer=" + customer +
+                '}';
     }
 }
