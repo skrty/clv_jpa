@@ -1,5 +1,8 @@
 package hello.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 /**
@@ -10,7 +13,9 @@ public class Car {
     @Id
     @GeneratedValue
     private Long id;
+    @JsonProperty("s_p_z")
     private String spz;
+    @JsonIgnore
     private String vinCode;
     @Enumerated(EnumType.STRING)
     private Color color;
@@ -78,6 +83,9 @@ public class Car {
         return "Car{" +
                 "id=" + id +
                 ", spz='" + spz + '\'' +
+                ", vinCode='" + vinCode + '\'' +
+                ", color=" + color +
+                ", manufacturer=" + manufacturer +
                 ", customer=" + customer +
                 '}';
     }
