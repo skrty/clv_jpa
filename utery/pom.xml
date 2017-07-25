@@ -77,7 +77,7 @@
                 </executions>
                 <configuration>
                     <schemaDirectory>${project.basedir}/src/main/resources/ws/</schemaDirectory>
-                    <outputDirectory>${project.basedir}/src/main/java/hello/ws</outputDirectory>
+                    <outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
                     <clearOutputDir>false</clearOutputDir>
                 </configuration>
             </plugin>
